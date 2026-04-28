@@ -1,11 +1,42 @@
 ---
 ---
-<header class="sticky top-0 z-50 border-b border-surface-200 bg-surface-50/80 backdrop-blur-lg">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-    <a href="/" class="text-lg font-bold tracking-tight text-surface-900 font-display">Your New Business</a>
-    <div class="flex items-center gap-6">
-      <a href="/blog" class="text-sm font-medium text-surface-800/60 hover:text-surface-900 transition-colors">Blog</a>
-      <a href="#cta" class="text-sm font-semibold bg-brand-500 text-white px-4 py-2 rounded-lg hover:bg-brand-600 transition-colors">Get Started</a>
+<header class="sticky top-0 z-50" style="border-bottom: 1px solid oklch(0.90 0.025 55 / 0.6); background: oklch(0.97 0.015 75 / 0.88);" >
+  <div class="absolute inset-0 backdrop-blur-md" aria-hidden="true" style="z-index: -1;"></div>
+  <nav class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+
+    <!-- Wordmark -->
+    <a href="/" class="flex items-center gap-2.5 group" aria-label="Floreth home">
+      <!-- Small botanical mark -->
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="flex-shrink-0">
+        <ellipse cx="11" cy="5.5" rx="3.5" ry="5.5" fill="oklch(0.62 0.10 42)" opacity="0.75"/>
+        <ellipse cx="11" cy="5.5" rx="3.5" ry="5.5" fill="oklch(0.62 0.10 42)" opacity="0.45" transform="rotate(72 11 11)"/>
+        <ellipse cx="11" cy="5.5" rx="3.5" ry="5.5" fill="oklch(0.62 0.10 42)" opacity="0.45" transform="rotate(144 11 11)"/>
+        <ellipse cx="11" cy="5.5" rx="3.5" ry="5.5" fill="oklch(0.62 0.10 42)" opacity="0.45" transform="rotate(216 11 11)"/>
+        <ellipse cx="11" cy="5.5" rx="3.5" ry="5.5" fill="oklch(0.62 0.10 42)" opacity="0.45" transform="rotate(288 11 11)"/>
+        <circle cx="11" cy="11" r="2.5" fill="oklch(0.85 0.10 75)"/>
+      </svg>
+      <span class="font-display font-medium text-surface-900 tracking-wide"
+            style="font-size: 1.2rem; letter-spacing: 0.04em;">Floreth</span>
+    </a>
+
+    <!-- Nav links -->
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#how-it-works"
+         class="font-body font-light text-sm text-surface-800/70 hover:text-surface-900 transition-colors duration-150 tracking-wide">
+        How it works
+      </a>
+      <a href="#join"
+         class="font-body font-light text-sm text-surface-800/70 hover:text-surface-900 transition-colors duration-150 tracking-wide">
+        About
+      </a>
     </div>
+
+    <!-- CTA -->
+    <a href="#join"
+       class="inline-flex items-center gap-1.5 px-5 py-2.5 font-body font-medium text-sm rounded-full text-white hover:bg-brand-600 transition-colors duration-200"
+       style="background: oklch(0.62 0.10 42); box-shadow: 0 2px 12px oklch(0.62 0.10 42 / 0.25);">
+      Join waitlist
+    </a>
+
   </nav>
 </header>

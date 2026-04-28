@@ -1,57 +1,94 @@
+/* Google Fonts — Cormorant Garamond (display) + Montserrat (body) */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
 @import "tailwindcss";
 
 /* -----------------------------------------------------------------------
-   Design Tokens — customize these to change the entire site's look.
-   The Product Agent should edit this @theme block to match the business:
-   - Swap fonts (Google Fonts @import above, font families below)
-   - Change brand colors to match the business personality
-   - Flip surface colors for dark theme (swap light/dark values)
+   Floreth Design Tokens
+   Warm organic luxury — apricot, cream, terracotta, sage, golden yellow
    ----------------------------------------------------------------------- */
 
 @theme {
-  /* Typography — replace with distinctive Google Fonts for the business */
-  --font-display: ui-sans-serif, system-ui, sans-serif;
-  --font-body: ui-sans-serif, system-ui, sans-serif;
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Montserrat', ui-sans-serif, sans-serif;
 
-  /* Brand color scale — agent should customize per business */
-  --color-brand-50: oklch(0.97 0.01 250);
-  --color-brand-100: oklch(0.93 0.02 250);
-  --color-brand-200: oklch(0.87 0.04 250);
-  --color-brand-400: oklch(0.70 0.12 250);
-  --color-brand-500: oklch(0.60 0.16 250);
-  --color-brand-600: oklch(0.50 0.16 250);
+  /* Brand color scale — deep apricot/terracotta primary */
+  --color-brand-50:  oklch(0.97 0.012 42);
+  --color-brand-100: oklch(0.93 0.025 42);
+  --color-brand-200: oklch(0.87 0.048 42);
+  --color-brand-400: oklch(0.73 0.082 42);
+  --color-brand-500: oklch(0.62 0.10 42);   /* #C97B5A — main terracotta */
+  --color-brand-600: oklch(0.52 0.10 42);
 
-  /* Surface colors — light theme defaults. Flip for dark theme:
-     surface-50 becomes near-black, surface-900 becomes near-white */
-  --color-surface-50: oklch(0.985 0.002 250);
-  --color-surface-100: oklch(0.96 0.004 250);
-  --color-surface-200: oklch(0.92 0.006 250);
-  --color-surface-800: oklch(0.30 0.015 250);
-  --color-surface-900: oklch(0.20 0.015 250);
-  --color-surface-950: oklch(0.14 0.012 250);
+  /* Accent — buttery golden yellow */
+  --color-accent-200: oklch(0.93 0.065 75);
+  --color-accent-300: oklch(0.88 0.090 75);
+  --color-accent-400: oklch(0.85 0.10 75);  /* #F2C97E */
+  --color-accent-500: oklch(0.76 0.10 75);
+
+  /* Sage — botanical green */
+  --color-sage-200: oklch(0.90 0.028 148);
+  --color-sage-400: oklch(0.75 0.048 148);
+  --color-sage-500: oklch(0.68 0.052 148);  /* #8EA98A */
+  --color-sage-600: oklch(0.58 0.052 148);
+
+  /* Surface colors — warm cream, light theme */
+  --color-surface-50:  oklch(0.985 0.008 75);   /* near-white warm */
+  --color-surface-100: oklch(0.97 0.015 75);    /* #FAF3EC soft cream */
+  --color-surface-200: oklch(0.94 0.022 60);    /* apricot tint */
+  --color-surface-300: oklch(0.90 0.025 55);
+  --color-surface-800: oklch(0.35 0.025 42);
+  --color-surface-900: oklch(0.25 0.025 42);    /* warm near-black */
+  --color-surface-950: oklch(0.18 0.020 42);
 }
 
-/* Page-load animations — CSS only, no JS required */
+/* -----------------------------------------------------------------------
+   Page-load animations — CSS only, no JS required
+   ----------------------------------------------------------------------- */
+
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out both;
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
 }
 
-.animate-slide-up {
-  animation: slideUp 0.6s ease-out both;
-}
+.animate-fade-in   { animation: fadeIn  0.8s ease-out both; }
+.animate-slide-up  { animation: slideUp 0.8s ease-out both; }
+.animate-float     { animation: floatGentle 6s ease-in-out infinite; }
 
-/* Staggered animation delays for cascading reveals */
+/* Staggered delays */
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* -----------------------------------------------------------------------
+   Global base styles
+   ----------------------------------------------------------------------- */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: oklch(0.97 0.015 75); /* warm cream */
+}
+
+/* Organic wave divider shared utility */
+.wave-divider {
+  overflow: hidden;
+  line-height: 0;
+}
