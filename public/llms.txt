@@ -1,0 +1,20 @@
+# Your New Business
+
+> URL: https://fertile-grace.onrender.com
+
+> Create a premium feminine wellness website/app for a Christian, pro-life period and fertility tracking platform rooted in holistic and functional medicine. Use a soft apricot background with cream, buttery yellow, and light blue accents (optional sage botanical touches). Aesthetic should feel elegant, calming, modern, organic, and high-end with rounded layouts, soft textures, botanical illustrations, serif + clean sans typography, and luxury wellness branding.
+
+## About
+
+Your New Business is an AI-powered business. This file provides a brief overview for
+language model crawlers and AI assistants.
+
+## Pages
+
+- /: Home — learn about Your New Business and get started
+- /blog: Blog — articles, updates, and insights
+- /blog/[slug]: Individual blog posts
+
+## Contact
+
+For inquiries, please visit our website.

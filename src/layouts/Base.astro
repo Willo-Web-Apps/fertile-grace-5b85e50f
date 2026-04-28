@@ -1,0 +1,39 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = "Your New Business", description = "Create a premium feminine wellness website/app for a Christian, pro-life period and fertility tracking platform rooted in holistic and functional medicine. Use a soft apricot background with cream, buttery yellow, and light blue accents (optional sage botanical touches). Aesthetic should feel elegant, calming, modern, organic, and high-end with rounded layouts, soft textures, botanical illustrations, serif + clean sans typography, and luxury wellness branding." } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <title>{title}</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Your New Business",
+      "description": "Create a premium feminine wellness website/app for a Christian, pro-life period and fertility tracking platform rooted in holistic and functional medicine. Use a soft apricot background with cream, buttery yellow, and light blue accents (optional sage botanical touches). Aesthetic should feel elegant, calming, modern, organic, and high-end with rounded layouts, soft textures, botanical illustrations, serif + clean sans typography, and luxury wellness branding.",
+      "url": "https://fertile-grace.onrender.com"
+    }
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-surface-50 text-surface-900 font-body antialiased">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
