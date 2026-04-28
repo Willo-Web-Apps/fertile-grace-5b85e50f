@@ -1,399 +1,211 @@
 ---
 import Base from '../layouts/Base.astro';
+import EmailCapture from '../components/EmailCapture.astro';
 ---
 
 <Base
-  title="Floreth — Know your body. Honor your design."
-  description="Floreth is a premium Christian fertility and cycle tracking platform rooted in holistic and functional medicine. Faith-grounded wellness for women who want to understand their bodies as fearfully and wonderfully made."
+  title="Floreth — Finally understand your cycle, naturally"
+  description="Floreth is a premium fertility awareness and cycle health platform rooted in functional medicine. Hormone-free fertility tracking, cycle syncing, and holistic body literacy for every woman."
 >
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       HERO — Immersive warm morning-light atmospheric opening
+       HERO — Full-colour botanical illustration, vibrant Rifle Paper Co. palette
   ══════════════════════════════════════════════════════════════════════ -->
-  <section class="hero-section relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+  <section class="hero-section relative min-h-[96vh] flex flex-col items-center justify-center overflow-hidden" style="background:#FDFAF5;">
 
-    <!-- Layered gradient background: warm apricot morning light -->
     <div class="hero-bg absolute inset-0" aria-hidden="true"></div>
-
-    <!-- Noise/grain overlay for linen texture -->
     <div class="hero-grain absolute inset-0" aria-hidden="true"></div>
 
-    <!-- Botanical SVG illustration — top-right -->
-    <div class="absolute top-0 right-0 w-[340px] md:w-[480px] opacity-25 pointer-events-none select-none" aria-hidden="true">
-      <svg viewBox="0 0 480 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Branch -->
-        <path d="M420 0 C380 80 340 120 300 180 C270 230 260 280 240 340" stroke="#8EA98A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <!-- Leaves -->
-        <ellipse cx="370" cy="70" rx="28" ry="14" transform="rotate(-35 370 70)" fill="#8EA98A" opacity="0.6"/>
-        <ellipse cx="348" cy="110" rx="22" ry="11" transform="rotate(20 348 110)" fill="#C97B5A" opacity="0.35"/>
-        <ellipse cx="318" cy="160" rx="26" ry="12" transform="rotate(-50 318 160)" fill="#8EA98A" opacity="0.5"/>
-        <ellipse cx="292" cy="210" rx="20" ry="10" transform="rotate(15 292 210)" fill="#F2C97E" opacity="0.45"/>
-        <ellipse cx="272" cy="255" rx="24" ry="11" transform="rotate(-40 272 255)" fill="#8EA98A" opacity="0.55"/>
-        <ellipse cx="258" cy="300" rx="18" ry="9" transform="rotate(25 258 300)" fill="#C97B5A" opacity="0.30"/>
-        <!-- Small flowers -->
-        <circle cx="388" cy="48" r="5" fill="#F2C97E" opacity="0.7"/>
-        <circle cx="388" cy="48" r="2" fill="#C97B5A" opacity="0.8"/>
-        <circle cx="335" cy="138" r="4" fill="#F2C97E" opacity="0.6"/>
-        <circle cx="335" cy="138" r="1.5" fill="#C97B5A" opacity="0.7"/>
-        <!-- Petals around flowers -->
-        <ellipse cx="388" cy="41" rx="4" ry="2.5" fill="#F2C97E" opacity="0.5"/>
-        <ellipse cx="395" cy="48" rx="4" ry="2.5" transform="rotate(90 395 48)" fill="#F2C97E" opacity="0.5"/>
-        <ellipse cx="388" cy="55" rx="4" ry="2.5" fill="#F2C97E" opacity="0.5"/>
-        <ellipse cx="381" cy="48" rx="4" ry="2.5" transform="rotate(90 381 48)" fill="#F2C97E" opacity="0.5"/>
+    <!-- Top-right bold floral cluster -->
+    <div class="absolute top-0 right-0 w-[300px] md:w-[460px] lg:w-[540px] pointer-events-none select-none" aria-hidden="true" style="transform:translate(8%,-4%);">
+      <svg viewBox="0 0 540 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="400" cy="105" rx="50" ry="36" transform="rotate(-30 400 105)" fill="#E05A3A" opacity="0.92"/>
+        <ellipse cx="400" cy="105" rx="50" ry="36" transform="rotate(42 400 105)"  fill="#E05A3A" opacity="0.80"/>
+        <ellipse cx="400" cy="105" rx="50" ry="36" transform="rotate(114 400 105)" fill="#E05A3A" opacity="0.80"/>
+        <ellipse cx="400" cy="105" rx="50" ry="36" transform="rotate(186 400 105)" fill="#E05A3A" opacity="0.72"/>
+        <ellipse cx="400" cy="105" rx="50" ry="36" transform="rotate(258 400 105)" fill="#E05A3A" opacity="0.72"/>
+        <circle  cx="400" cy="105" r="17" fill="#F5C842"/>
+        <circle  cx="400" cy="105" r="8"  fill="#E05A3A"/>
+        <ellipse cx="305" cy="62"  rx="36" ry="24" transform="rotate(-20 305 62)"  fill="#E8527A" opacity="0.90"/>
+        <ellipse cx="305" cy="62"  rx="36" ry="24" transform="rotate(52 305 62)"   fill="#E8527A" opacity="0.76"/>
+        <ellipse cx="305" cy="62"  rx="36" ry="24" transform="rotate(124 305 62)"  fill="#E8527A" opacity="0.76"/>
+        <ellipse cx="305" cy="62"  rx="36" ry="24" transform="rotate(196 305 62)"  fill="#E8527A" opacity="0.68"/>
+        <circle  cx="305" cy="62"  r="12" fill="#F5C842"/>
+        <circle  cx="305" cy="62"  r="5.5" fill="#E8527A"/>
+        <ellipse cx="470" cy="210" rx="42" ry="28" transform="rotate(15 470 210)"  fill="#F5C842" opacity="0.92"/>
+        <ellipse cx="470" cy="210" rx="42" ry="28" transform="rotate(87 470 210)"  fill="#F5C842" opacity="0.80"/>
+        <ellipse cx="470" cy="210" rx="42" ry="28" transform="rotate(159 470 210)" fill="#F5C842" opacity="0.80"/>
+        <ellipse cx="470" cy="210" rx="42" ry="28" transform="rotate(231 470 210)" fill="#F5C842" opacity="0.70"/>
+        <circle  cx="470" cy="210" r="14" fill="#E05A3A"/>
+        <circle  cx="470" cy="210" r="6.5" fill="#F5C842"/>
+        <ellipse cx="355" cy="162" rx="34" ry="13" transform="rotate(-50 355 162)" fill="#6B8F5E" opacity="0.82"/>
+        <ellipse cx="422" cy="168" rx="28" ry="11" transform="rotate(20 422 168)"  fill="#6B8F5E" opacity="0.74"/>
+        <ellipse cx="334" cy="76"  rx="24" ry="9"  transform="rotate(-65 334 76)"  fill="#6B8F5E" opacity="0.70"/>
+        <ellipse cx="450" cy="142" rx="20" ry="8"  transform="rotate(35 450 142)"  fill="#6B8F5E" opacity="0.66"/>
+        <path d="M400 142 C395 192 380 232 366 280" stroke="#6B8F5E" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.55"/>
+        <path d="M305 86  C296 122 286 152 276 192"  stroke="#6B8F5E" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.48"/>
+        <ellipse cx="272" cy="200" rx="13" ry="9" transform="rotate(-25 272 200)" fill="#E8527A" opacity="0.72"/>
+        <circle  cx="272" cy="200" r="5" fill="#F5C842" opacity="0.88"/>
+        <circle cx="342" cy="48" r="5"  fill="#F5C842" opacity="0.82"/>
+        <circle cx="444" cy="82" r="4"  fill="#E8527A" opacity="0.72"/>
+        <circle cx="378" cy="244" r="4" fill="#E05A3A" opacity="0.68"/>
       </svg>
     </div>
 
-    <!-- Botanical SVG illustration — bottom-left -->
-    <div class="absolute bottom-0 left-0 w-[260px] md:w-[360px] opacity-20 pointer-events-none select-none" aria-hidden="true">
-      <svg viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 320 C40 260 80 220 120 170 C150 130 170 90 200 50" stroke="#8EA98A" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-        <ellipse cx="60" cy="280" rx="30" ry="13" transform="rotate(40 60 280)" fill="#8EA98A" opacity="0.55"/>
-        <ellipse cx="95" cy="238" rx="25" ry="11" transform="rotate(-20 95 238)" fill="#C97B5A" opacity="0.30"/>
-        <ellipse cx="128" cy="195" rx="28" ry="12" transform="rotate(45 128 195)" fill="#8EA98A" opacity="0.50"/>
-        <ellipse cx="155" cy="155" rx="22" ry="10" transform="rotate(-15 155 155)" fill="#F2C97E" opacity="0.40"/>
-        <circle cx="45" cy="295" r="4" fill="#F2C97E" opacity="0.65"/>
-        <circle cx="45" cy="295" r="1.5" fill="#C97B5A" opacity="0.75"/>
+    <!-- Bottom-left botanical sprig -->
+    <div class="absolute bottom-0 left-0 w-[200px] md:w-[300px] pointer-events-none select-none" aria-hidden="true" style="transform:translate(-4%,5%);">
+      <svg viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28 260 C55 222 92 188 130 148 C158 116 172 82 196 48" stroke="#6B8F5E" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.65"/>
+        <ellipse cx="72"  cy="232" rx="26" ry="10" transform="rotate(45 72 232)"   fill="#6B8F5E" opacity="0.76"/>
+        <ellipse cx="104" cy="196" rx="22" ry="9"  transform="rotate(-20 104 196)" fill="#6B8F5E" opacity="0.70"/>
+        <ellipse cx="140" cy="158" rx="24" ry="9"  transform="rotate(40 140 158)"  fill="#6B8F5E" opacity="0.72"/>
+        <ellipse cx="160" cy="122" rx="30" ry="21" transform="rotate(-15 160 122)" fill="#E8527A" opacity="0.84"/>
+        <ellipse cx="160" cy="122" rx="30" ry="21" transform="rotate(57 160 122)"  fill="#E8527A" opacity="0.72"/>
+        <ellipse cx="160" cy="122" rx="30" ry="21" transform="rotate(129 160 122)" fill="#E8527A" opacity="0.72"/>
+        <ellipse cx="160" cy="122" rx="30" ry="21" transform="rotate(201 160 122)" fill="#E8527A" opacity="0.64"/>
+        <circle  cx="160" cy="122" r="10" fill="#F5C842"/>
+        <circle  cx="160" cy="122" r="4.5" fill="#E8527A"/>
+        <ellipse cx="196" cy="64" rx="17" ry="12" transform="rotate(-30 196 64)" fill="#F5C842" opacity="0.86"/>
+        <circle  cx="196" cy="64" r="6.5" fill="#E05A3A" opacity="0.82"/>
+        <circle  cx="52" cy="250" r="4.5" fill="#F5C842" opacity="0.76"/>
       </svg>
     </div>
 
     <!-- Hero content -->
-    <div class="relative z-10 max-w-3xl mx-auto px-6 text-center py-32 md:py-40">
+    <div class="relative z-10 max-w-2xl mx-auto px-6 text-center py-36 md:py-44">
 
-      <!-- Eyebrow -->
-      <p class="animate-fade-in text-brand-500 font-body font-500 text-sm tracking-[0.18em] uppercase mb-6">
-        Faith · Cycle Science · Functional Wellness
-      </p>
+      <div class="animate-fade-in inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-7" style="background:#E8527A14; border:1px solid #E8527A38;">
+        <span style="color:#E8527A;" class="font-body text-xs tracking-[0.15em] uppercase" style="font-weight:700;">Fertility Awareness · Cycle Health · Functional Medicine</span>
+      </div>
 
-      <!-- Headline — dramatic Cormorant Garamond -->
-      <h1 class="animate-slide-up font-display font-light text-surface-900 leading-[1.08] tracking-tight mb-8"
-          style="font-size: clamp(2.8rem, 7vw, 5.5rem); letter-spacing: -0.01em;">
-        Your Cycle Is a Gift —<br />
-        <em style="font-style: italic; font-weight: 300;">Learn to Read It</em>
+      <h1 class="animate-slide-up font-display font-light leading-[1.06] mb-6" style="font-size:clamp(2.9rem,7.5vw,5.6rem); color:#2D5A6B; letter-spacing:-0.015em;">
+        Finally understand<br/>your cycle —<br/><em style="font-style:italic; color:#E05A3A;">naturally.</em>
       </h1>
 
-      <!-- Sub -->
-      <p class="animate-slide-up delay-200 font-body font-light text-surface-800 leading-relaxed mb-10 max-w-2xl mx-auto"
-         style="font-size: 1.125rem;">
-        Floreth blends faith, functional medicine, and fertility awareness so you can understand, trust, and honor your body's natural design.
+      <p class="animate-slide-up delay-200 font-body font-light leading-relaxed mb-10 max-w-xl mx-auto" style="font-size:1.125rem; color:#2D5A6B;">
+        Floreth guides you through fertility awareness and holistic cycle health — no hormones, no confusion, just the body literacy every woman deserves.
       </p>
 
-      <!-- CTAs -->
       <div class="animate-slide-up delay-300 flex flex-col sm:flex-row gap-4 justify-center items-center">
         <a href="#join"
-           class="inline-flex items-center gap-2 px-8 py-4 bg-brand-500 text-white font-body font-medium text-sm tracking-wide rounded-full hover:bg-brand-600 transition-colors duration-200 shadow-lg"
-           style="box-shadow: 0 4px 24px oklch(0.62 0.10 42 / 0.28);">
-          Begin my journey
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+           class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-body text-white text-sm tracking-wide"
+           style="background:#E05A3A; box-shadow:0 6px 28px #E05A3A44; min-height:52px; font-weight:700;">
+          Get early access
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="#how-it-works"
-           class="inline-flex items-center gap-2 px-8 py-4 bg-surface-100/60 backdrop-blur-sm text-surface-900 font-body font-medium text-sm tracking-wide rounded-full border border-surface-200 hover:bg-surface-200/60 transition-colors duration-200">
+           class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-body text-sm tracking-wide"
+           style="background:rgba(253,250,245,0.75); border:1.5px solid #2D5A6B38; color:#2D5A6B; min-height:52px; backdrop-filter:blur(8px); font-weight:400;">
           See how it works
         </a>
       </div>
 
-      <!-- Micro trust -->
-      <p class="animate-fade-in delay-500 mt-8 text-xs text-surface-800/50 font-body font-light tracking-wide">
-        No subscription required to explore · Faith-grounded · Science-backed
+      <p class="animate-fade-in delay-500 mt-8 font-body font-light text-xs tracking-wide" style="color:#2D5A6B70;">
+        No hormones. No devices. No subscription needed to start.
       </p>
     </div>
 
-    <!-- Bottom wave fade into next section -->
-    <div class="absolute bottom-0 left-0 right-0 wave-divider" aria-hidden="true">
-      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
-              fill="oklch(0.985 0.008 75)"/>
+    <div class="absolute bottom-0 left-0 right-0 floral-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,36 C180,72 360,0 540,36 C720,72 900,8 1080,36 C1260,64 1380,20 1440,36 L1440,72 L0,72 Z" fill="#FFF8F0"/>
       </svg>
     </div>
   </section>
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       IMPACT STATS — Three honest, grounding numbers
+       PROBLEM — Three pain points
   ══════════════════════════════════════════════════════════════════════ -->
-  <section class="relative py-16 md:py-20" style="background: oklch(0.985 0.008 75);">
+  <section class="relative py-20 md:py-28" style="background:#FFF8F0;">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <div class="text-center mb-16 animate-slide-up">
+        <p class="font-body text-xs tracking-[0.18em] uppercase mb-4" style="color:#E05A3A; font-weight:700;">Sound familiar?</p>
+        <h2 class="font-display font-light leading-tight" style="font-size:clamp(2rem,4.5vw,3.2rem); color:#2D5A6B;">
+          Your body has a rhythm.<br/><em style="font-style:italic;">Are you listening?</em>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="animate-slide-up p-8 rounded-[20px]" style="background:#FDFAF5; border:1.5px solid #E05A3A22; box-shadow:0 4px 20px #E05A3A0A;">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background:#E05A3A15;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E05A3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3 class="font-display mb-3" style="font-size:1.3rem; color:#2D5A6B; font-weight:500;">Hormones that silence you</h3>
+          <p class="font-body font-light leading-relaxed text-base" style="color:#2D5A6B90;">Synthetic hormones mask your cycle's signals — leaving you disconnected from your own body for years without knowing what's underneath.</p>
+        </div>
+
+        <div class="animate-slide-up delay-100 p-8 rounded-[20px]" style="background:#FDFAF5; border:1.5px solid #E8527A22; box-shadow:0 4px 20px #E8527A0A;">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background:#E8527A15;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8527A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <h3 class="font-display mb-3" style="font-size:1.3rem; color:#2D5A6B; font-weight:500;">Cold data, zero context</h3>
+          <p class="font-body font-light leading-relaxed text-base" style="color:#2D5A6B90;">Most apps give you numbers and graphs but never explain what they mean — leaving you more confused than when you started.</p>
+        </div>
+
+        <div class="animate-slide-up delay-200 p-8 rounded-[20px]" style="background:#FDFAF5; border:1.5px solid #6B8F5E22; box-shadow:0 4px 20px #6B8F5E0A;">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5" style="background:#6B8F5E15;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B8F5E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="font-display mb-3" style="font-size:1.3rem; color:#2D5A6B; font-weight:500;">No app honors the whole you</h3>
+          <p class="font-body font-light leading-relaxed text-base" style="color:#2D5A6B90;">Clinical white interfaces. Cosmic dark themes. Nothing designed for a woman who wants scientific precision and genuine warmth — until now.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="floral-divider mt-0" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,30 C360,60 720,0 1080,30 C1260,45 1380,18 1440,30 L1440,60 L0,60 Z" fill="#FDFAF5"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       HOW IT WORKS — 3 offset steps
+  ══════════════════════════════════════════════════════════════════════ -->
+  <section id="how-it-works" class="relative py-24 md:py-36" style="background:#FDFAF5;">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center">
 
-        <div class="animate-slide-up">
-          <p class="font-display font-light text-brand-500 leading-none mb-2"
-             style="font-size: clamp(2.8rem, 5vw, 4rem);">28</p>
-          <p class="text-xs font-body font-medium tracking-[0.12em] uppercase text-surface-800/60">Days in your cycle story</p>
-        </div>
-
-        <div class="animate-slide-up delay-100">
-          <p class="font-display font-light text-brand-500 leading-none mb-2"
-             style="font-size: clamp(2.8rem, 5vw, 4rem);">100%</p>
-          <p class="text-xs font-body font-medium tracking-[0.12em] uppercase text-surface-800/60">Hormone-free family planning</p>
-        </div>
-
-        <div class="animate-slide-up delay-200">
-          <p class="font-display font-light text-brand-500 leading-none mb-2"
-             style="font-size: clamp(2.8rem, 5vw, 4rem);">1 in 1</p>
-          <p class="text-xs font-body font-medium tracking-[0.12em] uppercase text-surface-800/60">Women deserve to know her body</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       ORIGIN STORY — Narrative, offset layout, pull quote
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section class="relative overflow-hidden py-24 md:py-36" style="background: oklch(0.97 0.015 75);">
-
-    <!-- Faint botanical watermark -->
-    <div class="absolute right-[-60px] top-1/2 -translate-y-1/2 opacity-[0.07] pointer-events-none select-none w-[400px]" aria-hidden="true">
-      <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="200" cy="200" r="180" stroke="#C97B5A" stroke-width="1.5"/>
-        <circle cx="200" cy="200" r="140" stroke="#C97B5A" stroke-width="1"/>
-        <circle cx="200" cy="200" r="100" stroke="#C97B5A" stroke-width="0.8"/>
-        <path d="M200 20 L200 380 M20 200 L380 200" stroke="#C97B5A" stroke-width="0.6"/>
-        <path d="M75 75 L325 325 M325 75 L75 325" stroke="#C97B5A" stroke-width="0.6"/>
-      </svg>
-    </div>
-
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-
-        <!-- Left: Story text -->
-        <div class="animate-slide-up">
-          <p class="text-brand-500 font-body font-medium text-xs tracking-[0.18em] uppercase mb-5">Our Story</p>
-          <h2 class="font-display font-light text-surface-900 leading-tight mb-8"
-              style="font-size: clamp(2rem, 4vw, 3.2rem);">
-            Built for women who felt lost<br />
-            <em style="font-style: italic;">between science and faith</em>
-          </h2>
-          <p class="font-body font-light text-surface-800 leading-relaxed text-lg mb-6">
-            Most cycle apps treat fertility as a problem to solve — or a data set to optimize. They offer charts and algorithms, but no language for the sacred, no respect for the woman behind the numbers.
-          </p>
-          <p class="font-body font-light text-surface-800 leading-relaxed text-lg mb-6">
-            Floreth was born from a different belief: that your body, as Psalm 139 describes, is <em>fearfully and wonderfully made</em>. Every phase of your cycle is intelligible, purposeful, and worth understanding — not suppressing.
-          </p>
-          <p class="font-body font-light text-surface-800 leading-relaxed text-lg">
-            We bring together evidence-based Fertility Awareness Methods, functional medicine cycle literacy, and Christian wellness education — in an experience that feels like opening a beautiful journal, not a medical record.
-          </p>
-        </div>
-
-        <!-- Right: Pull quote card -->
-        <div class="animate-slide-up delay-200 flex flex-col gap-6">
-
-          <!-- Quote card -->
-          <div class="relative p-10 rounded-[28px]"
-               style="background: oklch(0.97 0.015 75); border: 1px solid oklch(0.90 0.025 55); box-shadow: 0 8px 40px oklch(0.62 0.10 42 / 0.08);">
-            <!-- Decorative botanical accent -->
-            <div class="absolute top-4 right-4 opacity-30" aria-hidden="true">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="20" stroke="#8EA98A" stroke-width="1"/>
-                <ellipse cx="24" cy="14" rx="5" ry="10" fill="#8EA98A" opacity="0.4"/>
-                <ellipse cx="14" cy="29" rx="10" ry="5" transform="rotate(-30 14 29)" fill="#8EA98A" opacity="0.3"/>
-                <ellipse cx="34" cy="29" rx="10" ry="5" transform="rotate(30 34 29)" fill="#8EA98A" opacity="0.3"/>
-                <circle cx="24" cy="24" r="3" fill="#C97B5A" opacity="0.6"/>
-              </svg>
-            </div>
-            <p class="font-display font-light italic text-surface-900 leading-snug mb-6"
-               style="font-size: 1.5rem; line-height: 1.4;">
-              "I will praise You, for I am fearfully and wonderfully made; marvelous are Your works, and that my soul knows very well."
-            </p>
-            <p class="font-body font-medium text-brand-500 text-xs tracking-[0.15em] uppercase">Psalm 139:14</p>
-          </div>
-
-          <!-- Small accent card -->
-          <div class="p-6 rounded-[20px]"
-               style="background: oklch(0.85 0.10 75 / 0.18); border: 1px solid oklch(0.85 0.10 75 / 0.35);">
-            <p class="font-body font-light text-surface-900 text-base leading-relaxed">
-              <span class="font-medium">Floreth</span> combines the Latin <em>florere</em> (to flourish) with breath — because understanding your cycle is how you come alive in your own skin.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       HOW IT WORKS — 4 steps, visual timeline feel
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section id="how-it-works" class="relative py-24 md:py-36 overflow-hidden" style="background: oklch(0.985 0.008 75);">
-
-    <!-- Top wave -->
-    <div class="absolute top-0 left-0 right-0 wave-divider rotate-180" aria-hidden="true">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,20 C360,60 720,0 1080,30 C1260,45 1380,20 1440,20 L1440,60 L0,60 Z"
-              fill="oklch(0.97 0.015 75)"/>
-      </svg>
-    </div>
-
-    <div class="max-w-5xl mx-auto px-6">
       <div class="text-center mb-20 animate-slide-up">
-        <p class="text-brand-500 font-body font-medium text-xs tracking-[0.18em] uppercase mb-4">The Floreth Method</p>
-        <h2 class="font-display font-light text-surface-900 leading-tight"
-            style="font-size: clamp(2rem, 4.5vw, 3.4rem);">
-          Four seasons of your month,<br />
-          <em style="font-style: italic;">finally understood</em>
+        <p class="font-body text-xs tracking-[0.18em] uppercase mb-4" style="color:#E8527A; font-weight:700;">The Floreth Method</p>
+        <h2 class="font-display font-light leading-tight" style="font-size:clamp(2rem,4.5vw,3.4rem); color:#2D5A6B;">
+          Three steps to knowing<br/><em style="font-style:italic; color:#E05A3A;">your body completely</em>
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+      <div class="space-y-8">
 
-        <!-- Step 1 -->
-        <div class="animate-slide-up group p-8 rounded-[24px] transition-shadow duration-300 hover:shadow-xl"
-             style="background: oklch(0.97 0.015 75); border: 1px solid oklch(0.90 0.025 55); box-shadow: 0 4px 20px oklch(0.62 0.10 42 / 0.06);">
-          <div class="flex items-start gap-5">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-display font-light text-xl text-white"
-                 style="background: oklch(0.62 0.10 42);">1</div>
-            <div>
-              <h3 class="font-display font-medium text-surface-900 mb-3" style="font-size: 1.35rem;">Track your biomarkers</h3>
-              <p class="font-body font-light text-surface-800 leading-relaxed text-base">
-                Log temperature, cervical fluid, and observations each morning. Floreth reads these signs with FAM-certified methods to map your unique cycle.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="animate-slide-up delay-100 group p-8 rounded-[24px] transition-shadow duration-300 hover:shadow-xl"
-             style="background: oklch(0.94 0.022 60); border: 1px solid oklch(0.90 0.025 55); box-shadow: 0 4px 20px oklch(0.62 0.10 42 / 0.06);">
-          <div class="flex items-start gap-5">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-display font-light text-xl text-white"
-                 style="background: oklch(0.68 0.052 148);">2</div>
-            <div>
-              <h3 class="font-display font-medium text-surface-900 mb-3" style="font-size: 1.35rem;">Understand your phases</h3>
-              <p class="font-body font-light text-surface-800 leading-relaxed text-base">
-                See your cycle as four distinct seasons — each with its own energy, nutrition, and spiritual rhythm. Our phase guides connect the physical to the purposeful.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="animate-slide-up delay-200 group p-8 rounded-[24px] transition-shadow duration-300 hover:shadow-xl"
-             style="background: oklch(0.93 0.065 75); border: 1px solid oklch(0.88 0.09 75 / 0.5); box-shadow: 0 4px 20px oklch(0.62 0.10 42 / 0.06);">
-          <div class="flex items-start gap-5">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-display font-light text-xl text-white"
-                 style="background: oklch(0.76 0.10 75);">3</div>
-            <div>
-              <h3 class="font-display font-medium text-surface-900 mb-3" style="font-size: 1.35rem;">Learn the deeper why</h3>
-              <p class="font-body font-light text-surface-800 leading-relaxed text-base">
-                Dive into Floreth's functional medicine education library — hormone health, gut-cycle connections, thyroid support, and the theology of embodiment.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="animate-slide-up delay-300 group p-8 rounded-[24px] transition-shadow duration-300 hover:shadow-xl"
-             style="background: oklch(0.97 0.015 75); border: 1px solid oklch(0.90 0.025 55); box-shadow: 0 4px 20px oklch(0.62 0.10 42 / 0.06);">
-          <div class="flex items-start gap-5">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-display font-light text-xl text-white"
-                 style="background: oklch(0.62 0.10 42);">4</div>
-            <div>
-              <h3 class="font-display font-medium text-surface-900 mb-3" style="font-size: 1.35rem;">Honor your design</h3>
-              <p class="font-body font-light text-surface-800 leading-relaxed text-base">
-                Whether you're charting for conception, avoiding pregnancy naturally, or simply knowing yourself — Floreth meets you with science and reverence, not judgment.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Bottom wave -->
-    <div class="absolute bottom-0 left-0 right-0 wave-divider" aria-hidden="true">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,20 C360,60 720,0 1080,30 C1260,45 1380,20 1440,20 L1440,60 L0,60 Z"
-              fill="oklch(0.97 0.015 75)"/>
-      </svg>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       VALUES / PRINCIPLES — Staggered organic cards
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section class="relative py-24 md:py-36" style="background: oklch(0.97 0.015 75);">
-    <div class="max-w-5xl mx-auto px-6">
-
-      <div class="text-center mb-20 animate-slide-up">
-        <p class="text-brand-500 font-body font-medium text-xs tracking-[0.18em] uppercase mb-4">What We Believe</p>
-        <h2 class="font-display font-light text-surface-900 leading-tight"
-            style="font-size: clamp(2rem, 4.5vw, 3.4rem);">
-          Rooted in faith.<br />
-          <em style="font-style: italic;">Grounded in science.</em>
-        </h2>
-      </div>
-
-      <!-- Asymmetric staggered grid -->
-      <div class="space-y-6">
-
-        <!-- Row 1: full-width feature -->
-        <div class="animate-slide-up p-10 md:p-14 rounded-[28px] flex flex-col md:flex-row gap-10 items-center"
-             style="background: linear-gradient(135deg, oklch(0.62 0.10 42 / 0.08) 0%, oklch(0.85 0.10 75 / 0.12) 100%); border: 1px solid oklch(0.90 0.025 55);">
-          <!-- Icon -->
-          <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center"
-               style="background: oklch(0.62 0.10 42 / 0.15);">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.10 42)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
-              <path d="M12 6v6l4 2"/>
-            </svg>
+        <div class="animate-slide-up flex flex-col md:flex-row gap-8 items-center p-8 md:p-10 rounded-[24px]" style="background:linear-gradient(135deg,#E05A3A0B 0%,#FDFAF5 100%); border:1.5px solid #E05A3A1E;">
+          <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center" style="background:#E05A3A; box-shadow:0 6px 20px #E05A3A40;">
+            <span class="font-display font-light text-white" style="font-size:1.6rem;">1</span>
           </div>
           <div>
-            <h3 class="font-display font-medium text-surface-900 mb-3" style="font-size: 1.5rem;">Your fertility is not a problem</h3>
-            <p class="font-body font-light text-surface-800 leading-relaxed text-lg max-w-2xl">
-              We reject the medical model that treats a healthy, fertile cycle as something to be suppressed. Floreth is built on the conviction that fertility awareness is healthcare — not a last resort.
-            </p>
+            <h3 class="font-display mb-2" style="font-size:1.5rem; color:#2D5A6B; font-weight:500;">Chart your natural biomarkers</h3>
+            <p class="font-body font-light leading-relaxed text-lg" style="color:#2D5A6B90;">Log basal body temperature, cervical fluid, and daily observations. Floreth maps your unique cycle using evidence-based Fertility Awareness Methods — no wearables, no guesswork.</p>
           </div>
         </div>
 
-        <!-- Row 2: two cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          <div class="animate-slide-up delay-100 p-8 rounded-[24px]"
-               style="background: oklch(0.90 0.028 148 / 0.30); border: 1px solid oklch(0.75 0.048 148 / 0.35);">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5"
-                 style="background: oklch(0.68 0.052 148 / 0.20);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.58 0.052 148)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/>
-                <path d="M12 8v4l3 3"/>
-              </svg>
-            </div>
-            <h3 class="font-display font-medium text-surface-900 mb-3" style="font-size: 1.3rem;">Functional, not fragmented</h3>
-            <p class="font-body font-light text-surface-800 leading-relaxed text-base">
-              Your cycle connects to your sleep, gut, thyroid, stress, and spirit. We teach the whole picture — because your body speaks in systems, not symptoms.
-            </p>
+        <div class="animate-slide-up delay-150 flex flex-col md:flex-row gap-8 items-center p-8 md:p-10 rounded-[24px] md:ml-8" style="background:linear-gradient(135deg,#E8527A0B 0%,#FDFAF5 100%); border:1.5px solid #E8527A1E;">
+          <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center" style="background:#E8527A; box-shadow:0 6px 20px #E8527A40;">
+            <span class="font-display font-light text-white" style="font-size:1.6rem;">2</span>
           </div>
-
-          <div class="animate-slide-up delay-200 p-8 rounded-[24px]"
-               style="background: oklch(0.93 0.065 75 / 0.40); border: 1px solid oklch(0.85 0.10 75 / 0.45);">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center mb-5"
-                 style="background: oklch(0.85 0.10 75 / 0.35);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.52 0.10 42)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
-            </div>
-            <h3 class="font-display font-medium text-surface-900 mb-3" style="font-size: 1.3rem;">Faith as a foundation</h3>
-            <p class="font-body font-light text-surface-800 leading-relaxed text-base">
-              Christian women deserve tools built with their worldview, not adapted from secular frameworks. Our content honors the theological meaning of embodiment, fertility, and womanhood.
-            </p>
+          <div>
+            <h3 class="font-display mb-2" style="font-size:1.5rem; color:#2D5A6B; font-weight:500;">Learn what each phase means</h3>
+            <p class="font-body font-light leading-relaxed text-lg" style="color:#2D5A6B90;">Your cycle has four distinct phases — each with its own hormonal signature, energy, and needs. Floreth translates the science into language you'll actually use every day.</p>
           </div>
-
         </div>
 
-        <!-- Row 3: offset third card -->
-        <div class="animate-slide-up delay-300 md:mx-16 p-8 rounded-[24px] text-center"
-             style="background: oklch(0.94 0.022 60); border: 1px solid oklch(0.90 0.025 55);">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-5"
-               style="background: oklch(0.62 0.10 42 / 0.15);">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.10 42)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
+        <div class="animate-slide-up delay-300 flex flex-col md:flex-row gap-8 items-center p-8 md:p-10 rounded-[24px] md:ml-16" style="background:linear-gradient(135deg,#6B8F5E0B 0%,#FDFAF5 100%); border:1.5px solid #6B8F5E1E;">
+          <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center" style="background:#6B8F5E; box-shadow:0 6px 20px #6B8F5E40;">
+            <span class="font-display font-light text-white" style="font-size:1.6rem;">3</span>
           </div>
-          <h3 class="font-display font-medium text-surface-900 mb-3" style="font-size: 1.3rem;">Privacy by principle</h3>
-          <p class="font-body font-light text-surface-800 leading-relaxed text-base max-w-md mx-auto">
-            Your cycle data is sacred and private. Floreth will never sell, share, or monetize your health information. What you chart stays yours.
-          </p>
+          <div>
+            <h3 class="font-display mb-2" style="font-size:1.5rem; color:#2D5A6B; font-weight:500;">Live in sync with your cycle</h3>
+            <p class="font-body font-light leading-relaxed text-lg" style="color:#2D5A6B90;">Whether you're avoiding pregnancy naturally, trying to conceive, or just managing your energy — Floreth gives you the body literacy to make informed, confident decisions every day.</p>
+          </div>
         </div>
 
       </div>
@@ -402,233 +214,239 @@ import Base from '../layouts/Base.astro';
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       TESTIMONIAL — Single powerful voice
+       FEATURES GRID — Six color-blocked cards
   ══════════════════════════════════════════════════════════════════════ -->
-  <section class="relative py-24 md:py-36 overflow-hidden" style="background: oklch(0.62 0.10 42);">
+  <section class="relative py-24 md:py-36 overflow-hidden" style="background:#FFF8F0;">
 
-    <!-- Botanical watermark on dark terracotta -->
-    <div class="absolute inset-0 opacity-[0.06] pointer-events-none" aria-hidden="true">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="leaf-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-            <ellipse cx="60" cy="30" rx="18" ry="28" fill="white"/>
-            <ellipse cx="20" cy="80" rx="28" ry="18" transform="rotate(-30 20 80)" fill="white"/>
-            <ellipse cx="100" cy="80" rx="28" ry="18" transform="rotate(30 100 80)" fill="white"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#leaf-pattern)"/>
+    <div class="absolute right-[-80px] top-1/2 -translate-y-1/2 w-[420px] pointer-events-none" aria-hidden="true" style="opacity:0.035;">
+      <svg viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="210" cy="210" rx="190" ry="190" fill="#E05A3A"/>
+        <ellipse cx="210" cy="210" rx="190" ry="190" transform="rotate(36 210 210)" fill="#E8527A"/>
+        <ellipse cx="210" cy="210" rx="190" ry="190" transform="rotate(72 210 210)" fill="#F5C842"/>
+        <circle  cx="210" cy="210" r="55" fill="#2D5A6B"/>
       </svg>
     </div>
 
-    <!-- Grain overlay -->
-    <div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" aria-hidden="true"
-         style="background-image: url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\");"></div>
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-20 animate-slide-up">
+        <p class="font-body text-xs tracking-[0.18em] uppercase mb-4" style="color:#6B8F5E; font-weight:700;">What you get</p>
+        <h2 class="font-display font-light leading-tight" style="font-size:clamp(2rem,4.5vw,3.4rem); color:#2D5A6B;">
+          Everything your body<br/><em style="font-style:italic;">has been waiting for</em>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="animate-slide-up p-7 rounded-[20px] hover:-translate-y-1 transition-transform duration-200" style="background:#FFF0EC; border:1.5px solid #E05A3A22;">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center mb-5" style="background:#E05A3A20;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E05A3A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3 class="font-display mb-2" style="font-size:1.2rem; color:#2D5A6B; font-weight:500;">Cycle Charting</h3>
+          <p class="font-body font-light text-sm leading-relaxed" style="color:#2D5A6B90;">BBT, cervical fluid, and symptom logging — visualized as a living chart that tells your cycle's story.</p>
+        </div>
+
+        <div class="animate-slide-up delay-100 p-7 rounded-[20px] hover:-translate-y-1 transition-transform duration-200" style="background:#FFF0F5; border:1.5px solid #E8527A22;">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center mb-5" style="background:#E8527A20;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8527A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3 class="font-display mb-2" style="font-size:1.2rem; color:#2D5A6B; font-weight:500;">Fertility Awareness</h3>
+          <p class="font-body font-light text-sm leading-relaxed" style="color:#2D5A6B90;">Creighton, Billings, and Sympto-Thermal methods explained clearly so you know your fertile window with confidence.</p>
+        </div>
+
+        <div class="animate-slide-up delay-200 p-7 rounded-[20px] hover:-translate-y-1 transition-transform duration-200" style="background:#FFFBEC; border:1.5px solid #F5C84222;">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center mb-5" style="background:#F5C84220;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b8890a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <h3 class="font-display mb-2" style="font-size:1.2rem; color:#2D5A6B; font-weight:500;">Hormone Health</h3>
+          <p class="font-body font-light text-sm leading-relaxed" style="color:#2D5A6B90;">Understand estrogen, progesterone, and thyroid patterns — and what your chart reveals about your overall hormonal health.</p>
+        </div>
+
+        <div class="animate-slide-up delay-100 p-7 rounded-[20px] hover:-translate-y-1 transition-transform duration-200" style="background:#F2F8EF; border:1.5px solid #6B8F5E22;">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center mb-5" style="background:#6B8F5E20;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B8F5E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="font-display mb-2" style="font-size:1.2rem; color:#2D5A6B; font-weight:500;">Cycle Syncing</h3>
+          <p class="font-body font-light text-sm leading-relaxed" style="color:#2D5A6B90;">Align your nutrition, movement, and rest with each phase's natural energy — and stop fighting your own biology.</p>
+        </div>
+
+        <div class="animate-slide-up delay-200 p-7 rounded-[20px] hover:-translate-y-1 transition-transform duration-200" style="background:#EFF4F7; border:1.5px solid #2D5A6B22;">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center mb-5" style="background:#2D5A6B18;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2D5A6B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="font-display mb-2" style="font-size:1.2rem; color:#2D5A6B; font-weight:500;">Functional Medicine Lens</h3>
+          <p class="font-body font-light text-sm leading-relaxed" style="color:#2D5A6B90;">Your cycle connects to gut health, sleep, stress, and thyroid. Floreth teaches the whole picture — not isolated symptoms.</p>
+        </div>
+
+        <div class="animate-slide-up delay-300 p-7 rounded-[20px] hover:-translate-y-1 transition-transform duration-200" style="background:#FDFAF5; border:1.5px solid #E8527A1A;">
+          <div class="w-11 h-11 rounded-full flex items-center justify-center mb-5" style="background:#E8527A15;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8527A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="font-display mb-2" style="font-size:1.2rem; color:#2D5A6B; font-weight:500;">Community &amp; Support</h3>
+          <p class="font-body font-light text-sm leading-relaxed" style="color:#2D5A6B90;">Connect with women on the same journey — sharing observations, questions, and the quiet confidence of knowing your body.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PHILOSOPHY — Rotated journal cards
+  ══════════════════════════════════════════════════════════════════════ -->
+  <section class="relative py-24 md:py-40 overflow-hidden" style="background:#FDFAF5;">
+
+    <div class="absolute top-10 left-6 w-[100px] opacity-18 pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="50" cy="22" rx="18" ry="6" transform="rotate(-40 50 22)" fill="#6B8F5E"/>
+        <ellipse cx="32" cy="52" rx="18" ry="6" transform="rotate(18 32 52)"  fill="#6B8F5E"/>
+        <ellipse cx="68" cy="58" rx="15" ry="6" transform="rotate(-58 68 58)" fill="#6B8F5E"/>
+        <circle cx="52" cy="16" r="5.5" fill="#E8527A" opacity="0.9"/>
+        <circle cx="52" cy="16" r="2.5" fill="#F5C842"/>
+      </svg>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6">
+
+      <div class="text-center mb-16 animate-slide-up">
+        <p class="font-body text-xs tracking-[0.18em] uppercase mb-4" style="color:#6B8F5E; font-weight:700;">Our philosophy</p>
+        <h2 class="font-display font-light leading-tight" style="font-size:clamp(2rem,4.5vw,3.4rem); color:#2D5A6B;">
+          Your body is not a problem<br/><em style="font-style:italic; color:#E05A3A;">to be managed.</em>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="animate-slide-up p-8 rounded-[20px]" style="background:#FFF0EC; border:1.5px solid #E05A3A25; transform:rotate(-1.5deg); box-shadow:0 8px 32px #E05A3A0C;">
+          <p class="font-display font-light italic leading-snug mb-4" style="font-size:1.2rem; color:#2D5A6B; line-height:1.45;">"Fertility is not a disease. It is a vital sign."</p>
+          <p class="font-body font-light text-sm leading-relaxed" style="color:#2D5A6B80;">We treat your cycle as the health barometer it actually is — giving you tools to read it, not silence it.</p>
+        </div>
+
+        <div class="animate-slide-up delay-150 p-8 rounded-[20px]" style="background:#FFF0F5; border:1.5px solid #E8527A25; transform:rotate(1.2deg); box-shadow:0 8px 32px #E8527A0C; margin-top:14px;">
+          <p class="font-display font-light italic leading-snug mb-4" style="font-size:1.2rem; color:#2D5A6B; line-height:1.45;">"Every woman deserves to understand her own body."</p>
+          <p class="font-body font-light text-sm leading-relaxed" style="color:#2D5A6B80;">Body literacy is a right, not a privilege. Floreth makes this knowledge beautiful, accessible, and genuinely yours.</p>
+        </div>
+
+        <div class="animate-slide-up delay-300 p-8 rounded-[20px]" style="background:#F2F8EF; border:1.5px solid #6B8F5E25; transform:rotate(-0.8deg); box-shadow:0 8px 32px #6B8F5E0C;">
+          <p class="font-display font-light italic leading-snug mb-4" style="font-size:1.2rem; color:#2D5A6B; line-height:1.45;">"Privacy is the foundation of trust."</p>
+          <p class="font-body font-light text-sm leading-relaxed" style="color:#2D5A6B80;">Your cycle data is yours — always. Floreth will never sell, share, or monetize your health information. Full stop.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       TESTIMONIAL — Deep teal background, full-colour bloom icon
+  ══════════════════════════════════════════════════════════════════════ -->
+  <section class="relative py-24 md:py-36 overflow-hidden" style="background:#2D5A6B;">
+
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true" style="opacity:0.05;">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="bloom-tile" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+            <ellipse cx="50" cy="20" rx="14" ry="20" fill="white"/>
+            <ellipse cx="50" cy="20" rx="14" ry="20" transform="rotate(72 50 50)" fill="white"/>
+            <ellipse cx="50" cy="20" rx="14" ry="20" transform="rotate(144 50 50)" fill="white"/>
+            <ellipse cx="50" cy="20" rx="14" ry="20" transform="rotate(216 50 50)" fill="white"/>
+            <ellipse cx="50" cy="20" rx="14" ry="20" transform="rotate(288 50 50)" fill="white"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#bloom-tile)"/>
+      </svg>
+    </div>
 
     <div class="relative z-10 max-w-3xl mx-auto px-6 text-center animate-slide-up">
-      <!-- Decorative flourish -->
+
       <div class="flex justify-center mb-8" aria-hidden="true">
-        <svg width="60" height="40" viewBox="0 0 60 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 20 C15 5 25 35 30 20 C35 5 45 35 55 20" stroke="oklch(0.85 0.10 75)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="26" cy="8"  rx="7" ry="14" fill="#E05A3A" opacity="0.88"/>
+          <ellipse cx="26" cy="8"  rx="7" ry="14" transform="rotate(60 26 26)"  fill="#E8527A" opacity="0.82"/>
+          <ellipse cx="26" cy="8"  rx="7" ry="14" transform="rotate(120 26 26)" fill="#F5C842" opacity="0.82"/>
+          <ellipse cx="26" cy="8"  rx="7" ry="14" transform="rotate(180 26 26)" fill="#E05A3A" opacity="0.76"/>
+          <ellipse cx="26" cy="8"  rx="7" ry="14" transform="rotate(240 26 26)" fill="#E8527A" opacity="0.76"/>
+          <ellipse cx="26" cy="8"  rx="7" ry="14" transform="rotate(300 26 26)" fill="#F5C842" opacity="0.76"/>
+          <circle  cx="26" cy="26" r="7.5" fill="#F5C842"/>
+          <circle  cx="26" cy="26" r="3.5" fill="#E05A3A"/>
         </svg>
       </div>
 
-      <blockquote class="font-display font-light italic text-white leading-snug mb-10"
-                  style="font-size: clamp(1.6rem, 3.5vw, 2.5rem); line-height: 1.35;">
-        "For the first time, I stopped dreading my period. I started reading it. Floreth gave me a language for what my body was already saying — and a faith framework to receive it as a gift."
+      <blockquote class="font-display font-light italic leading-snug mb-10" style="font-size:clamp(1.55rem,3.5vw,2.35rem); color:white; line-height:1.38;">
+        &ldquo;For the first time, I stopped dreading my period and started reading it. Floreth gave me a language for what my body was already telling me — and the confidence to trust it.&rdquo;
       </blockquote>
 
       <div class="flex items-center justify-center gap-4">
-        <div class="w-10 h-10 rounded-full flex items-center justify-center font-display font-medium text-brand-500 text-sm"
-             style="background: oklch(0.97 0.015 75);">S</div>
+        <div class="w-11 h-11 rounded-full flex items-center justify-center font-display text-sm" style="background:#F5C842; color:#2D5A6B; font-weight:500;">S</div>
         <div class="text-left">
-          <p class="font-body font-medium text-white text-sm">Sarah M.</p>
-          <p class="font-body font-light text-white/60 text-xs">Mother of three, NFP educator</p>
+          <p class="font-body text-sm" style="color:white; font-weight:700;">Sarah M.</p>
+          <p class="font-body font-light text-xs" style="color:rgba(255,255,255,0.6);">Fertility awareness educator, mother of three</p>
         </div>
       </div>
     </div>
 
-    <!-- Bottom wave back to cream -->
-    <div class="absolute bottom-0 left-0 right-0 wave-divider" aria-hidden="true">
-      <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,35 C288,70 576,0 864,35 C1152,70 1296,20 1440,35 L1440,70 L0,70 Z"
-              fill="oklch(0.985 0.008 75)"/>
+    <div class="floral-divider absolute bottom-0 left-0 right-0" aria-hidden="true">
+      <svg viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,32 C240,64 480,0 720,32 C960,64 1200,8 1440,32 L1440,64 L0,64 Z" fill="#FDFAF5"/>
       </svg>
     </div>
   </section>
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       FEATURES — What's inside Floreth
+       EMAIL CAPTURE — Free Cycle Wellness Guide lead magnet
   ══════════════════════════════════════════════════════════════════════ -->
-  <section class="relative py-24 md:py-36" style="background: oklch(0.985 0.008 75);">
-    <div class="max-w-5xl mx-auto px-6">
+  <section id="join" class="relative py-24 md:py-40 overflow-hidden" style="background:#FDFAF5;">
 
-      <div class="text-center mb-20 animate-slide-up">
-        <p class="text-brand-500 font-body font-medium text-xs tracking-[0.18em] uppercase mb-4">What's Inside</p>
-        <h2 class="font-display font-light text-surface-900 leading-tight"
-            style="font-size: clamp(2rem, 4.5vw, 3.4rem);">
-          Everything your body<br />
-          <em style="font-style: italic;">has been waiting for</em>
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Feature 1 -->
-        <div class="animate-slide-up p-8 rounded-[24px] hover:shadow-lg transition-shadow duration-300"
-             style="background: oklch(0.97 0.015 75); border: 1px solid oklch(0.90 0.025 55);">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center mb-5"
-               style="background: oklch(0.62 0.10 42 / 0.12);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.10 42)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-medium text-surface-900 mb-2 text-xl">Cycle charting</h3>
-          <p class="font-body font-light text-surface-800 text-sm leading-relaxed">BBT, cervical fluid, and symptom logging — visualized as a living chart, not just a log.</p>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="animate-slide-up delay-100 p-8 rounded-[24px] hover:shadow-lg transition-shadow duration-300"
-             style="background: oklch(0.90 0.028 148 / 0.22); border: 1px solid oklch(0.75 0.048 148 / 0.30);">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center mb-5"
-               style="background: oklch(0.68 0.052 148 / 0.18);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.58 0.052 148)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-medium text-surface-900 mb-2 text-xl">Education library</h3>
-          <p class="font-body font-light text-surface-800 text-sm leading-relaxed">Functional medicine cycle literacy, hormonal health guides, and faith-grounded wellness teachings.</p>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="animate-slide-up delay-200 p-8 rounded-[24px] hover:shadow-lg transition-shadow duration-300"
-             style="background: oklch(0.93 0.065 75 / 0.30); border: 1px solid oklch(0.85 0.10 75 / 0.40);">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center mb-5"
-               style="background: oklch(0.85 0.10 75 / 0.30);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.52 0.10 42)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <polyline points="12 6 12 12 16 14"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-medium text-surface-900 mb-2 text-xl">Phase guidance</h3>
-          <p class="font-body font-light text-surface-800 text-sm leading-relaxed">Daily recommendations for nutrition, movement, prayer, and rest aligned with your current phase.</p>
-        </div>
-
-        <!-- Feature 4 -->
-        <div class="animate-slide-up delay-100 p-8 rounded-[24px] hover:shadow-lg transition-shadow duration-300"
-             style="background: oklch(0.97 0.015 75); border: 1px solid oklch(0.90 0.025 55);">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center mb-5"
-               style="background: oklch(0.62 0.10 42 / 0.12);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.10 42)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-medium text-surface-900 mb-2 text-xl">NFP support</h3>
-          <p class="font-body font-light text-surface-800 text-sm leading-relaxed">Natural Family Planning methods (Creighton, Billings, Sympto-Thermal) explained and integrated into your chart.</p>
-        </div>
-
-        <!-- Feature 5 -->
-        <div class="animate-slide-up delay-200 p-8 rounded-[24px] hover:shadow-lg transition-shadow duration-300"
-             style="background: oklch(0.90 0.028 148 / 0.22); border: 1px solid oklch(0.75 0.048 148 / 0.30);">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center mb-5"
-               style="background: oklch(0.68 0.052 148 / 0.18);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.58 0.052 148)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-medium text-surface-900 mb-2 text-xl">Devotional reflections</h3>
-          <p class="font-body font-light text-surface-800 text-sm leading-relaxed">Short Scripture-grounded meditations for each cycle phase — connecting your body's rhythms to spiritual life.</p>
-        </div>
-
-        <!-- Feature 6 -->
-        <div class="animate-slide-up delay-300 p-8 rounded-[24px] hover:shadow-lg transition-shadow duration-300"
-             style="background: oklch(0.94 0.022 60); border: 1px solid oklch(0.90 0.025 55);">
-          <div class="w-10 h-10 rounded-full flex items-center justify-center mb-5"
-               style="background: oklch(0.62 0.10 42 / 0.12);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.62 0.10 42)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <h3 class="font-display font-medium text-surface-900 mb-2 text-xl">Private &amp; secure</h3>
-          <p class="font-body font-light text-surface-800 text-sm leading-relaxed">End-to-end encrypted. No data sold, no ads, no algorithms built on your body. Ever.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════
-       JOIN CTA — Warm invitation, no pressure
-  ══════════════════════════════════════════════════════════════════════ -->
-  <section id="join" class="relative py-24 md:py-40 overflow-hidden" style="background: oklch(0.97 0.015 75);">
-
-    <!-- Botanical decorative layer -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl opacity-[0.08] pointer-events-none" aria-hidden="true">
-      <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="300" cy="100" rx="280" ry="90" stroke="#C97B5A" stroke-width="1"/>
-        <ellipse cx="300" cy="100" rx="220" ry="70" stroke="#C97B5A" stroke-width="0.7"/>
-        <ellipse cx="300" cy="100" rx="160" ry="50" stroke="#C97B5A" stroke-width="0.5"/>
+    <div class="absolute top-6 right-6 w-[180px] opacity-12 pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="90" cy="36"  rx="18" ry="32" transform="rotate(-18 90 36)"  fill="#E05A3A"/>
+        <ellipse cx="140" cy="80" rx="15" ry="26" transform="rotate(48 140 80)"  fill="#E8527A"/>
+        <ellipse cx="120" cy="150" rx="16" ry="28" transform="rotate(-32 120 150)" fill="#F5C842"/>
+        <ellipse cx="48" cy="132" rx="14" ry="24" transform="rotate(22 48 132)"  fill="#6B8F5E"/>
+        <ellipse cx="40" cy="62"  rx="13" ry="22" transform="rotate(-52 40 62)"  fill="#E8527A"/>
+        <circle  cx="90" cy="90" r="18" fill="#F5C842" opacity="0.55"/>
+        <circle  cx="90" cy="90" r="9"  fill="#E05A3A"/>
       </svg>
     </div>
 
-    <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
-
+    <div class="relative z-10 max-w-xl mx-auto px-6 text-center">
       <div class="animate-slide-up">
-        <!-- Pressed flower icon -->
-        <div class="flex justify-center mb-8" aria-hidden="true">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="28" cy="28" r="27" stroke="oklch(0.62 0.10 42)" stroke-width="0.8" stroke-dasharray="3 3"/>
-            <ellipse cx="28" cy="14" rx="7" ry="13" fill="oklch(0.62 0.10 42)" opacity="0.25"/>
-            <ellipse cx="28" cy="14" rx="7" ry="13" fill="oklch(0.62 0.10 42)" opacity="0.15" transform="rotate(60 28 28)"/>
-            <ellipse cx="28" cy="14" rx="7" ry="13" fill="oklch(0.62 0.10 42)" opacity="0.15" transform="rotate(120 28 28)"/>
-            <ellipse cx="28" cy="14" rx="7" ry="13" fill="oklch(0.62 0.10 42)" opacity="0.20" transform="rotate(180 28 28)"/>
-            <ellipse cx="28" cy="14" rx="7" ry="13" fill="oklch(0.62 0.10 42)" opacity="0.15" transform="rotate(240 28 28)"/>
-            <ellipse cx="28" cy="14" rx="7" ry="13" fill="oklch(0.62 0.10 42)" opacity="0.15" transform="rotate(300 28 28)"/>
-            <circle cx="28" cy="28" r="5" fill="oklch(0.85 0.10 75)" opacity="0.9"/>
-            <circle cx="28" cy="28" r="2.5" fill="oklch(0.62 0.10 42)" opacity="0.8"/>
-          </svg>
-        </div>
 
-        <p class="text-brand-500 font-body font-medium text-xs tracking-[0.18em] uppercase mb-5">Join the Waitlist</p>
+        <p class="font-body text-xs tracking-[0.18em] uppercase mb-5" style="color:#E05A3A; font-weight:700;">Free Resource</p>
 
-        <h2 class="font-display font-light text-surface-900 leading-tight mb-6"
-            style="font-size: clamp(2.2rem, 5vw, 4rem);">
-          Ready to know your body<br />
-          <em style="font-style: italic;">the way God designed it?</em>
+        <h2 class="font-display font-light leading-tight mb-4" style="font-size:clamp(2.2rem,5vw,3.8rem); color:#2D5A6B;">
+          Get your free<br/><em style="font-style:italic; color:#E05A3A;">Cycle Wellness Guide</em>
         </h2>
 
-        <p class="font-body font-light text-surface-800 leading-relaxed text-lg mb-10 max-w-lg mx-auto">
-          Floreth is launching soon. Join our waitlist and be the first to experience cycle tracking that honors your faith, your health, and your whole self.
+        <p class="font-body font-light leading-relaxed text-lg mb-8 max-w-md mx-auto" style="color:#2D5A6B90;">
+          A practical introduction to fertility awareness, cycle phases, and hormone health — in plain language, beautifully designed.
         </p>
 
-        <!-- Email capture form -->
-        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-6"
-              onsubmit="event.preventDefault(); this.innerHTML='<p class=\'font-body text-brand-500 font-medium\'>You\'re on the list. We\'ll be in touch soon. ✦</p>';">
-          <input
-            type="email"
-            placeholder="your@email.com"
-            required
-            class="flex-1 px-5 py-4 rounded-full font-body font-light text-surface-900 text-sm focus:outline-none focus:ring-2 placeholder:text-surface-800/40"
-            style="background: oklch(0.985 0.008 75); border: 1.5px solid oklch(0.90 0.025 55); focus-ring-color: oklch(0.62 0.10 42);"
-          />
-          <button
-            type="submit"
-            class="px-7 py-4 bg-brand-500 text-white font-body font-medium text-sm rounded-full hover:bg-brand-600 transition-colors duration-200 whitespace-nowrap"
-            style="box-shadow: 0 4px 20px oklch(0.62 0.10 42 / 0.25);">
-            Join waitlist
-          </button>
-        </form>
+        <div class="flex flex-wrap gap-2 justify-center mb-10">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-body text-xs" style="background:#E05A3A12; border:1px solid #E05A3A28; color:#E05A3A; font-weight:400;">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="#E05A3A" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+            Cycle phase guide
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-body text-xs" style="background:#E8527A12; border:1px solid #E8527A28; color:#E8527A; font-weight:400;">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="#E8527A" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+            BBT charting basics
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-body text-xs" style="background:#F5C84212; border:1px solid #F5C84228; color:#b8890a; font-weight:400;">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="#b8890a" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+            Hormone health overview
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-body text-xs" style="background:#6B8F5E12; border:1px solid #6B8F5E28; color:#6B8F5E; font-weight:400;">
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="#6B8F5E" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+            Cycle syncing tips
+          </span>
+        </div>
 
-        <p class="font-body font-light text-surface-800/50 text-xs tracking-wide">
-          No spam. No selling your data. Just an honest update when we launch.
+        <div class="email-capture-wrapper">
+          <EmailCapture source="landing-waitlist" />
+        </div>
+
+        <p class="font-body font-light text-xs mt-5" style="color:#2D5A6B55;">
+          No spam. Unsubscribe any time. Your data is never sold.
         </p>
       </div>
     </div>
@@ -637,22 +455,62 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <style>
-  /* Hero background — layered warm apricot morning-light gradients */
+  /* Hero layered radial glows on cream linen */
   .hero-bg {
     background:
-      radial-gradient(ellipse 80% 60% at 15% 20%, oklch(0.85 0.10 75 / 0.35) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 85% 75%, oklch(0.62 0.10 42 / 0.22) 0%, transparent 55%),
-      radial-gradient(ellipse 100% 80% at 50% 0%, oklch(0.93 0.065 75 / 0.28) 0%, transparent 50%),
-      radial-gradient(ellipse 70% 60% at 0% 85%, oklch(0.68 0.052 148 / 0.10) 0%, transparent 50%),
-      linear-gradient(165deg, oklch(0.97 0.015 75) 0%, oklch(0.985 0.008 75) 60%, oklch(0.97 0.015 75) 100%);
+      radial-gradient(ellipse 68% 54% at 78% 14%, #E8527A18 0%, transparent 58%),
+      radial-gradient(ellipse 52% 44% at 18% 72%, #E05A3A12 0%, transparent 54%),
+      radial-gradient(ellipse 88% 62% at 48% 0%,  #F5C84212 0%, transparent 48%),
+      radial-gradient(ellipse 58% 48% at 4%  32%,  #6B8F5E0C 0%, transparent 48%),
+      linear-gradient(168deg, #FDFAF5 0%, #FFF9F2 52%, #FDFAF5 100%);
   }
 
-  /* Linen grain/noise texture overlay */
   .hero-grain {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.028;
     mix-blend-mode: multiply;
     pointer-events: none;
   }
-</style>
 
+  /* Strip EmailCapture default chrome; expose just form elements */
+  .email-capture-wrapper :global(.bg-brand-50) {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  .email-capture-wrapper :global(h3),
+  .email-capture-wrapper :global(p:not(#email-capture-msg)) {
+    display: none !important;
+  }
+  .email-capture-wrapper :global(input[type="email"]) {
+    border-radius: 9999px !important;
+    border: 1.5px solid #2D5A6B30 !important;
+    background: white !important;
+    font-family: 'Lato', sans-serif !important;
+    font-size: 0.95rem !important;
+    color: #2D5A6B !important;
+    padding: 0.9rem 1.4rem !important;
+    min-height: 52px !important;
+  }
+  .email-capture-wrapper :global(button[type="submit"]) {
+    border-radius: 9999px !important;
+    background: #E05A3A !important;
+    box-shadow: 0 6px 24px #E05A3A36 !important;
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    padding: 0.9rem 1.75rem !important;
+    min-height: 52px !important;
+    white-space: nowrap !important;
+    transition: background 180ms ease !important;
+  }
+  .email-capture-wrapper :global(button[type="submit"]:hover) {
+    background: #c84e2e !important;
+  }
+  .email-capture-wrapper :global(#email-capture-msg) {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 0.9rem !important;
+    margin-top: 0.75rem !important;
+  }
+</style>
